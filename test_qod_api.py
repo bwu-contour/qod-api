@@ -10,9 +10,10 @@ def test_can_call_endpoint():
         response = requests.get(ENDPOINT, verify=False)
     else:
         response = requests.get(ENDPOINT)
-    assert response.status_code == 200
     
     print("This request is being served by server: " + platform.node())
+
+    assert response.status_code == 200
 
 @pytest.mark.repeat(10)  # Run the test 10 times
 def test_get_daily_quote():
@@ -20,12 +21,13 @@ def test_get_daily_quote():
         response = requests.get(ENDPOINT + "/daily", verify=False)
     else:
         response = requests.get(ENDPOINT + "/daily")
-    assert response.status_code == 200
     
     print("This request is being served by server: " + platform.node())
     
     #data = response.json();
     #print(data)
+
+    assert response.status_code == 200
     
 @pytest.mark.repeat(10)  # Run the test 10 times
 def test_get_random_quote():
@@ -33,9 +35,10 @@ def test_get_random_quote():
         response = requests.get(ENDPOINT + "/random", verify=False)
     else:
         response = requests.get(ENDPOINT + "/random")
-    assert response.status_code == 200
     
     print("This request is being served by server: " + platform.node())
     
     #data = response.json();
     #print(data)
+
+    assert response.status_code == 200
