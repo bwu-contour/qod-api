@@ -1,6 +1,5 @@
 import pytest
 import requests
-import platform
 
 ENDPOINT = "http://localhost:8080"
 
@@ -10,8 +9,6 @@ def test_can_call_endpoint():
         response = requests.get(ENDPOINT, verify=False)
     else:
         response = requests.get(ENDPOINT)
-    
-    print("This request is being served by server: " + platform.node())
 
     assert response.status_code == 200
 
@@ -21,8 +18,6 @@ def test_get_daily_quote():
         response = requests.get(ENDPOINT + "/daily", verify=False)
     else:
         response = requests.get(ENDPOINT + "/daily")
-    
-    print("This request is being served by server: " + platform.node())
     
     #data = response.json();
     #print(data)
@@ -35,8 +30,6 @@ def test_get_random_quote():
         response = requests.get(ENDPOINT + "/random", verify=False)
     else:
         response = requests.get(ENDPOINT + "/random")
-    
-    print("This request is being served by server: " + platform.node())
     
     #data = response.json();
     #print(data)
